@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Meal from "./Meal";
 
 const MealList = ({meals, fetchRandomMeal}) => {
+
+    const [showGenerator, setShowGenerator] = useState(false);
     
 
     const mealComponents = meals.map((meal) => {
@@ -15,6 +18,7 @@ const MealList = ({meals, fetchRandomMeal}) => {
             <>
             <section id="section_generator">
             <hr/>
+
             <h2>Random Meal Generator</h2>
                 <div className="meal_list">
                 <p>Can't decide? Let us do the recipe hunting for you!</p>

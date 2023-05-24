@@ -12,10 +12,20 @@ body {
   width: 100%;
   color: rgb(64, 62, 62);
 }
-/* .meal_container {
-  background-color: ;
-} */
 
+
+.meal_container {
+  padding-bottom: 2.5rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
 
 
 h2 {
@@ -72,8 +82,9 @@ h1 {
 }
 
 .meal img {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
 }
 
 .search_input_bar input {
@@ -181,6 +192,19 @@ h1 {
   font-family:'Courier New', Courier, monospace;
 }
 
+.meal_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.meal_info button {
+  width: 200px; 
+}
+
+.meal_info a {
+  /* color: aqua; */
+}
+
 footer {
   background-color: #388087;
   padding-top: 20px;
@@ -200,6 +224,6 @@ footer a, footer p {
 
 #footer_nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   text-decoration: none;
 }

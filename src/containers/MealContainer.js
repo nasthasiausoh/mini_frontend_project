@@ -15,9 +15,9 @@ const MealContainer = ({meal}) => {
         const jsonDataMealSearch = await responseMealSearch.json();
         setMeals(jsonDataMealSearch.meals)
     }
-    useEffect(() => {
-        fetchSearchMeal();
-    }, [])
+    // useEffect(() => {
+    //     fetchSearchMeal();
+    // }, [])
 
 
 
@@ -27,9 +27,9 @@ const MealContainer = ({meal}) => {
         setMeals(jsonData.meals);
     }
 
-    useEffect(() => {
-        fetchRandomMeal();
-    }, [])
+    // useEffect(() => {
+    //     fetchRandomMeal();
+    // }, [])
 
 
     

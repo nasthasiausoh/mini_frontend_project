@@ -8,7 +8,7 @@ const Footer = () => {
                 </nav>
                 
             <div class="footer_bottom">
-                <p>&copy; Natasha YouTube Inc. 2023</p>
+                <p>&copy; Natasha Meal Finder Inc. 2023</p>
             </div>
         </footer>
      );
