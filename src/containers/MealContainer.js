@@ -7,18 +7,30 @@ import MealList from "../components/MealList";
 const MealContainer = ({meal}) => {
     const [meals, setMeals] = useState([]);
     const [error, setError] = useState("");
-    const [mealToUpdate, setMealToUpdate] = useState(null);
-
-const fetchRandomMeal = useEffect(() => {
-        fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-        .then((response) => response.json())
-        .then((response) => setMeals(response.meals))
-        .catch((err) => setError(err.message));
-    }, []);
+    const [mealSearch, setMealSearch] = useState([]);
 
 
-    // Display and error to the user if we cannot fetch meals:
-    
+    const fetchSearchMeal = async () => {
+        const responseMealSearch = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=" + mealSearch)
+        const jsonDataMealSearch = await responseMealSearch.json();
+        setMeals(jsonDataMealSearch.meals)
+    }
+    useEffect(() => {
+        fetchSearchMeal();
+    }, [])
+
+
+
+    const fetchRandomMeal = async () => {
+        const response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+        const jsonData = await response.json();
+        setMeals(jsonData.meals);
+    }
+
+    useEffect(() => {
+        fetchRandomMeal();
+    }, [])
+
 
     
     return (  
@@ -38,9 +50,25 @@ const fetchRandomMeal = useEffect(() => {
                     <a href="#">Desserts</a>
                 </nav>
             </header>
+
+            <section className="meal_search">
+                <h2>Browse Meals</h2>
+                <div className="search_input_bar"> 
+                    <input 
+                        type="text" 
+                        value={mealSearch} 
+                        placeholder="Search for a meal.."
+                        onChange={(e) => setMealSearch(e.target.value)} />
+                    <button onClick={fetchSearchMeal}>Search</button>
+                </div>
+            </section>
             
-            <MealForm key={meals.id} meal={meals} />
-            <MealList meals={meals}/>
+            {/* <MealForm 
+            key={meals.id}
+            meal={meals} 
+            fetchSearchMeal={fetchSearchMeal} /> */}
+
+            <MealList meals={meals} fetchRandomMeal={fetchRandomMeal}/>
             { (error !== "") && <p> Error! {error}</p>}
 
         </div>

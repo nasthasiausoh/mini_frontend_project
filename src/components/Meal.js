@@ -7,7 +7,7 @@ const Meal = ({meal}) => {
     return ( 
         <div class="meal">
             <hr />
-            <h2> How about... <i>{meal.strMeal}</i>? </h2>
+            <h2> How about... <i>{meal.strMeal}?</i> </h2>
             <section id="random_image">
                 {meal ? <img src={meal.strMealThumb} alt="Picture of meal" /> : <p> Loading meal</p>}
             </section>
@@ -27,7 +27,7 @@ const Meal = ({meal}) => {
                 <button>Show More...</button>
             <p>Instructions: {meal.strInstructions}</p> 
             <hr/>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
      );
 }
